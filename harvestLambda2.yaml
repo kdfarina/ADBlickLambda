@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  harvestLambda2:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: .
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::877756333824:role/service-role/harvestLambda2-role-7a1ik3w7'
+      Environment:
+        Variables:
+          GDAL_DATA: /opt/lib/data
+      Layers:
+        - 'arn:aws:lambda:us-west-2:877756333824:layer:gdal-layer:1'

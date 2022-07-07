@@ -1,0 +1,52 @@
+
+
+#harvestlambda1---------------------------------------------------------------------------------
+----------------------
+S3: arn:aws:s3:::harvestkml
+Python 3.7
+
+#Con estas capas generan dos de lso 4 archivos shp: shp, sbx:
+https://github.com/developmentseed/geolambda/blob/master/README.md
+
+Environment variables
+GDAL_DATA=/opt/share/gdal
+PROJ_LIB=/opt/share/proj (only needed for GeoLambda 2.0.0+)
+
+arn:aws:lambda:us-west-2:552188055668:layer:geolambda:2
+arn:aws:lambda:us-west-2:552188055668:layer:geolambda-python:1
+
+
+#harvestlambda2---------------------------------------------------------------------------------
+----------------------
+#Ultima capa generada con un docker file: Cloud Formation y codebuid:
+S3: arn:aws:s3:::harvestkml
+python 3.8
+
+https://github.com/asfadmin/gdal-lambda-layer/blob/master/README.md
+arn:aws:cloudformation:us-west-2:877756333824:stack/gdal-layer/1e53b6f0-f977-11ec-ac9d-026422fec391
+arn:aws:codebuild:us-west-2:877756333824:build/gdal-layer:df125918-f6d5-4cf1-9056-0f3fba3fd76b
+
+arn:aws:lambda:us-west-2:877756333824:layer:gdal-layer:1
+
+Environment variables
+GDAL_DATA=/opt/lib/data
+
+
+
+#harvestlambdax---------------------------------------------------------------------------------
+----------------------
+
+Capas con las cuales genera dos archivos:
+https://github.com/lambgeo/geo-layer
+Python 3.7
+arn:aws:lambda:us-west-2:524387336408:capa:gdal35:2
+arn:aws:lambda:us-west-2:877756333824:layer:gdal-layer:1
+
+Environment variables
+GDAL_DATA=/opt/share/gdal
+PROJ_LIB=/opt/share/proj (only needed for GeoLambda 2.0.0+)
+
+
+https://github.com/lambgeo/geo-layer/tree/60c9cf69a4529e14d4394a0a3e78dd5f84d9e6ec
+https://www.geeksforgeeks.org/how-to-install-python-packages-for-aws-lambda-layers/
+https://github.com/lambgeo/docker-lambda
